@@ -1,0 +1,17 @@
+#include<stdio.h>
+#define SIZE 5
+int main()
+{   
+    int i;
+	int arr[SIZE];
+	printf("\nEnter A number: \t");
+	for(i=0;i<=SIZE-1;i++)
+	{
+	scanf("%d",&arr[i]);
+}
+	for(i=SIZE-1;i>=0;i--)
+	{
+			printf("%d\t",arr[i]);
+	}	
+	
+}
