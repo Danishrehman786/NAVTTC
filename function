@@ -1,0 +1,4 @@
+def my_function():
+    print("MY NAME IS DANISH")
+
+my_function()
