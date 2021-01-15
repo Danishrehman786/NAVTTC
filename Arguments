@@ -1,0 +1,9 @@
+def my_function(fname):
+    print(fname + "NED")
+
+my_function("Email")
+my_function("Tobias")
+my_function("Linus")
+def my_function(fname, lname):
+        print(fname + " " + lname)
+my_function("DANISH", "NED")
