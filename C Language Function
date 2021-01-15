@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<conio.h>
+void PrintMessage();
+int main()
+{
+	PrintMessage();
+}
+
+	void PrintMessage()
+	{
+    printf("Have a Nice:\n\n");
+    printf("Day!\n\n");
+    }
