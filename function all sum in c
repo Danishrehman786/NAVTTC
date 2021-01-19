@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<conio.h>
+void sum(int num1,int num2);
+void sub(int num1,int num2);
+void mul(int num1,int num2);
+void div(int num1,int num2);
+int main()
+{
+	int num1;
+	int num2;
+	printf("Enter num1 :");
+    scanf("%d%d",&num1,&num2);
+	sum(num1,num2);
+	sub(num1,num2);
+	mul(num1,num2);
+	div(num1,num2);
+	
+
+}
+void sum(int n1,int n2)
+{
+	int add=n1+n2;
+	printf("sum = %d\n",add);
+}
+ void sub(int n1,int n2)
+{
+	int sub=n1-n2;
+	printf("sub = %d\n",sub);
+}
+ void mul(int n1,int n2)
+{
+	int mul=n1*n2;
+	printf("mul = %d\n",mul);
+}
+void div(int n1,int n2)
+{
+	int div=n1/n2;
+	printf("div = %d\n",div);
+}
