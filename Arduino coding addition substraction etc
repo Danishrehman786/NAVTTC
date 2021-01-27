@@ -1,0 +1,58 @@
+void calcul(char opt, int n1 , int n2);
+
+void setup()
+{
+ Serial.begin(9600);
+}
+
+void loop()
+{
+ Serial.println("press '+' For add");
+   Serial.println("press '-' For subtraction");
+  Serial.println("press '*' For multiplication");
+  Serial.println("press '/' For division");
+  while(Serial.available() == 0)
+  {
+  }
+  char opt = Serial.read();
+  Serial.println(opt);
+  Serial.println("enter two number");
+   while(Serial.available() == 0)
+   {
+   }
+  int num1 = Serial.parseInt();
+  Serial.println(num1);
+ 
+  int num2 = Serial.parseInt();
+  Serial.println(num2);
+  calcul(opt,num1,num2);
+}
+
+void calcul(char opt, int n1, int n2)
+{
+  if(opt == '+'){
+    int sum=n1+n2;
+    Serial.println(sum);}
+  else if(opt == '-')
+  {
+    int sub=n1-n2;
+    Serial.println(sub);}
+  else if(opt == '*')
+  {
+    int mul=n1*n2;
+    Serial.println(mul);
+  }
+  else if(opt =='/')
+  {
+    int div=n1/n2;
+    Serial.println(div);}
+  else
+  {
+    Serial.println("Invalid Command");}
+  
+  
+  
+  
+  
+  
+}
