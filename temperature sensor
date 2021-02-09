@@ -1,0 +1,13 @@
+void setup()
+{
+  pinMode(A1, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int a =digitalRead(A1);
+  Serial.println(a);
+  delay(1000);
+ 
+}
