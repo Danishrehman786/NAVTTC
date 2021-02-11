@@ -1,35 +1,41 @@
-int const trigPin = 10;
-int const echoPin = 9;
-int const buzzPin = 2;
-int count_value;
+int left_sensor = A0;
+int right_sensor =A1;
+int left_motorf = A2;
+int left_motorb = A3;
+int right_motorf = A4;
+int right_motorb = A5;
 
-void setup()
-{
-  pinMode(trigPin, OUTPUT); 
-  pinMode(echoPin, INPUT); 
-  pinMode(buzzPin, OUTPUT); 
-  Serial.begin(9600);
+
+void setup() {
+  pinMode(left_sensor, INPUT);
+  pinMode(right_sensor, INPUT);
+  pinMode(left_motorf, OUTPUT);
+  pinMode(left_motorb, OUTPUT);
+  pinMode(right_motorf, OUTPUT);
+  pinMode(right_motorb, OUTPUT);
 }
 
-void loop()
+void loop() 
 {
-  int duration, distance;
-  digitalWrite(trigPin, HIGH); 
-  Serial.print("");
-  delay(1000);
-  digitalWrite(trigPin, LOW);
-  
-  duration = pulseIn(echoPin, HIGH);
-  
-  distance = (duration/2) / 29.1;
- 
-    if (distance <= 50 && distance >= 0) {
-      digitalWrite(buzzPin, HIGH);
-      delay(1000);
-      count_value++;
-      Serial.println(count_value);
-    } else {  
-      digitalWrite(buzzPin, LOW);
-    }
-    delay(1000);
+if(analogRead(left_sensor)<500 && analogRead(right_sensor)<500)
+{
+  analogWrite(left_motorf, 150);
+  analogWrite(right_motorf, 150);
+}
+else if(analogRead(left_sensor)>=500 && analogRead(right_sensor)<500)
+{
+  analogWrite(left_motorf, 0);
+  analogWrite(right_motorf, 150);
+}
+else if(analogRead(left_sensor)<500 && analogReadd(right_sensor)>=500)
+{
+   analogWrite(left_motorf, 150);
+  analogWrite(right_motorf, 0);
+}
+else if(analogRead(left_sensor)<=500 && analogRead(right_sensor)<=500)
+{
+  analogWrite(left_motorf, 0);
+  analogWrite(right_motorf, 0);
+}
+
 }
