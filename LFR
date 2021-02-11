@@ -1,0 +1,35 @@
+int const trigPin = 10;
+int const echoPin = 9;
+int const buzzPin = 2;
+int count_value;
+
+void setup()
+{
+  pinMode(trigPin, OUTPUT); 
+  pinMode(echoPin, INPUT); 
+  pinMode(buzzPin, OUTPUT); 
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int duration, distance;
+  digitalWrite(trigPin, HIGH); 
+  Serial.print("");
+  delay(1000);
+  digitalWrite(trigPin, LOW);
+  
+  duration = pulseIn(echoPin, HIGH);
+  
+  distance = (duration/2) / 29.1;
+ 
+    if (distance <= 50 && distance >= 0) {
+      digitalWrite(buzzPin, HIGH);
+      delay(1000);
+      count_value++;
+      Serial.println(count_value);
+    } else {  
+      digitalWrite(buzzPin, LOW);
+    }
+    delay(1000);
+}
