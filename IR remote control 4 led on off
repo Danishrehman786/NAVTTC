@@ -1,0 +1,49 @@
+#include <IRremote.h>
+
+int RECV_PIN = 2;
+
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+void setup()
+{
+Serial.begin(9600);
+  irrecv.enableIRIn();
+
+
+}
+void loop(){
+  if(irrecv.decode(&results)){             //1 is turn led on
+  Serial.println(results.value, HEX);
+    switch(results.value){
+    case 16582903:
+      digitalWrite(13, HIGH);
+      delay(2000);
+      digitalWrite(13, LOW);
+      break;
+      
+       	
+    case 16615543:
+      digitalWrite(10, HIGH); // Red Dot is Off
+      delay(2000);
+      digitalWrite(10, LOW);
+      break;
+      
+    case 16599223:
+      digitalWrite(11, HIGH);
+      delay(2000);
+      digitalWrite(11, LOW);
+      break;
+       	
+    case 16591063:
+      digitalWrite(12, HIGH); // Red Dot is Off  
+      delay(2000);
+      digitalWrite(12, LOW);
+      break;
+    
+    }
+    irrecv.resume();
+  
+  }
+  delay(100);
+
+}
